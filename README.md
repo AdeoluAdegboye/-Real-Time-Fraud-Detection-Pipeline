@@ -33,7 +33,7 @@ os.environ['JAVA_HOME'] = '/opt/homebrew/opt/openjdk@17'
 
 
 Step 1 — Clone the Repository
-bashgit clone https://github.com/YOUR_USERNAME/fraud-detection-pipeline.git
+bashgit clone https://github.com/AdeoluAdegboye/fraud-detection-pipeline.git
 cd fraud-detection-pipeline
 Step 2 — Start Infrastructure
 bashdocker-compose up -d
@@ -89,20 +89,8 @@ LIMIT 10;
 Step 7 — Shut Down
 bashdocker-compose down
 
-Sample Output
-After running the pipeline for ~2 minutes, a query on the flagged_transactions table returns:
- fraud_flag        | total
--------------------+-------
- HIGH_AMOUNT       |   48
- SUSPICIOUS_AMOUNT |   91
-(2 rows)
+<img width="674" height="240" alt="Screenshot 2026-03-03 at 12 49 17" src="https://github.com/user-attachments/assets/5d0f3854-5d1d-4250-8287-5c95e6624de3" />
 
- transaction_id                        | user_id   |   amount    | fraud_flag   | timestamp
----------------------------------------+-----------+-------------+--------------+---------------------
- 3f2a1c89-4d5e-4f6b-8a7c-1b2d3e4f5a6b | USER_4821 | 4,987,234.50| HIGH_AMOUNT  | 2024-03-02 14:23:11
- a1b2c3d4-e5f6-7890-abcd-ef1234567890 | USER_3317 | 4,812,009.75| HIGH_AMOUNT  | 2024-03-02 14:23:14
- 9f8e7d6c-5b4a-3c2d-1e0f-9a8b7c6d5e4f | USER_7654 | 3,201,450.00| HIGH_AMOUNT  | 2024-03-02 14:23:18
-(10 rows)
 
 Future Improvements
 
