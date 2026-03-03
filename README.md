@@ -13,41 +13,13 @@ Can be extended with a machine learning scoring layer for more sophisticated det
 
 The architecture mirrors real-world Fintech fraud systems used at companies like Moniepoint, Paystack, and Flutterwave — where transaction monitoring must happen at low latency and high throughput across millions of events per day.
 
-day.
-<img width="629" height="461" alt="Screenshot 2026-03-03 at 12 19 22" src="https://github.com/user-attachments/assets/23962b09-d53b-4641-bcbd-df6f149e1543" />
+<img width="606" height="455" alt="Screenshot 2026-03-03 at 12 21 17" src="https://github.com/user-attachments/assets/a49e5cd2-df9a-4bb3-be0b-84f8d26ac56f" />
 
- Architecture
-┌─────────────────────┐
-│   Transaction       │
-│   Producer          │  Simulates a stream of bank transactions
-│   (src/producer.py) │  including injected fraud patterns (5%)
-└────────┬────────────┘
-         │  Publishes to topic: transactions
-         ▼
-┌─────────────────────┐
-│   Apache Kafka      │  Distributed message broker
-│   + Zookeeper       │  Decouples producer from consumer
-│   (Docker)          │  Retains messages for fault tolerance
-└────────┬────────────┘
-         │  Subscribes to topic: transactions
-         ▼
-┌─────────────────────┐
-│   Spark Structured  │  Reads stream in micro-batches
-│   Streaming         │  Parses JSON payloads
-│   (src/fraud_       │  Applies fraud detection rules
-│    detector.py)     │  (amount thresholds, velocity checks)
-└────────┬────────────┘
-         │  Writes flagged records via JDBC
-         ▼
-┌─────────────────────┐
-│   PostgreSQL        │  Stores flagged transactions
-│   (Docker)          │  for analyst review and reporting
-│   fraud_db          │
-└─────────────────────┘
+<img width="512" height="366" alt="Screenshot 2026-03-03 at 12 22 48" src="https://github.com/user-attachments/assets/aa31072a-f62c-40ae-aaf3-e08502994bdf" />
 
-🛠️ Tech Stack
+  Tech Stack
 Technology              Version                       Role
-ApacheKafka             7.4.0(Confluent)           Message broker / event stream
+ApacheKafka             7.4.0(Confluent)           Message broker/event stream
 Apache Zookeeper        7.4.0(Confluent)           Kafka cluster coordination
 Apache Spark(PySpark)   3.4.0                      Structured Streaming engine
 PostgreSQL              15                         Sink for flagged transactions
