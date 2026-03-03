@@ -46,7 +46,7 @@ Port conflict? If port 5432 is already in use (local PostgreSQL running), change
 Step 3 — Set Up Python Environment
 bashpython -m venv venv
 source venv/bin/activate        # Mac/Linux
-# venv\Scripts\activate         # Windows
+venv\Scripts\activate         # Windows 
 pip install -r requirements.txt
 
 Step 4 — Create the PostgreSQL Table
