@@ -17,29 +17,6 @@ The architecture mirrors real-world Fintech fraud systems used at companies like
 
 <img width="512" height="366" alt="Screenshot 2026-03-03 at 12 22 48" src="https://github.com/user-attachments/assets/aa31072a-f62c-40ae-aaf3-e08502994bdf" />
 
-  Tech Stack
-Technology              Version                       Role
-ApacheKafka             7.4.0(Confluent)           Message broker/event stream
-Apache Zookeeper        7.4.0(Confluent)           Kafka cluster coordination
-Apache Spark(PySpark)   3.4.0                      Structured Streaming engine
-PostgreSQL              15                         Sink for flagged transactions
-Docker + Docker Compose Latest                     Local infrastructure
-Python                  3.10+                      Pipeline code
-Faker                   Latest                     Synthetic transaction data generation
-
-
-Project Structure
-fraud-detection-pipeline/
-├── docker-compose.yml        # Kafka, Zookeeper, PostgreSQL services
-├── requirements.txt          # Python dependencies
-├── README.md
-├── src/
-│   ├── __init__.py
-│   ├── producer.py           # Kafka transaction producer
-│   └── fraud_detector.py     # Spark Structured Streaming consumer
-├── data/                     # Optional: sample CSV snapshots
-└── tests/                    # Unit tests
-
 How to Run
 Prerequisites
 
