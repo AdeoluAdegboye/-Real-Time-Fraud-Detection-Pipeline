@@ -1,8 +1,8 @@
-🔍 Real-Time Fraud Detection Pipeline
+ Real-Time Fraud Detection Pipeline
 A production-style streaming data pipeline that detects suspicious financial transactions in real time using Apache Kafka, Spark Structured Streaming, and PostgreSQL — fully containerised with Docker.
 
 
-📌 Project Overview
+ Project Overview
 Financial fraud costs the global economy billions of dollars every year. Traditional batch-based fraud detection systems only flag suspicious activity hours or days after a transaction occurs — far too late to prevent losses.
 This project tackles that problem by building a real-time streaming pipeline that:
 
@@ -15,7 +15,7 @@ The architecture mirrors real-world Fintech fraud systems used at companies like
 
 day.
 
-🏗️ Architecture
+ Architecture
 ┌─────────────────────┐
 │   Transaction       │
 │   Producer          │  Simulates a stream of bank transactions
@@ -55,7 +55,7 @@ Python                  3.10+                      Pipeline code
 Faker                   Latest                     Synthetic transaction data generation
 
 
-📁 Project Structure
+Project Structure
 fraud-detection-pipeline/
 ├── docker-compose.yml        # Kafka, Zookeeper, PostgreSQL services
 ├── requirements.txt          # Python dependencies
@@ -67,7 +67,7 @@ fraud-detection-pipeline/
 ├── data/                     # Optional: sample CSV snapshots
 └── tests/                    # Unit tests
 
-⚙️ How to Run
+How to Run
 Prerequisites
 
 Docker Desktop installed and running
@@ -139,7 +139,7 @@ LIMIT 10;
 Step 7 — Shut Down
 bashdocker-compose down
 
-📊 Sample Output
+Sample Output
 After running the pipeline for ~2 minutes, a query on the flagged_transactions table returns:
  fraud_flag        | total
 -------------------+-------
@@ -154,7 +154,7 @@ After running the pipeline for ~2 minutes, a query on the flagged_transactions t
  9f8e7d6c-5b4a-3c2d-1e0f-9a8b7c6d5e4f | USER_7654 | 3,201,450.00| HIGH_AMOUNT  | 2024-03-02 14:23:18
 (10 rows)
 
-🚀 Future Improvements
+Future Improvements
 
 1. ML-based scoring — Replace hard-coded thresholds with a trained anomaly detection model (Isolation Forest or AutoEncoder) served via MLflow
 2. Velocity checks — Flag users who make more than N transactions within a sliding time window using Spark's windowed aggregations
