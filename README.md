@@ -14,6 +14,7 @@ Can be extended with a machine learning scoring layer for more sophisticated det
 The architecture mirrors real-world Fintech fraud systems used at companies like Moniepoint, Paystack, and Flutterwave — where transaction monitoring must happen at low latency and high throughput across millions of events per day.
 
 day.
+<img width="629" height="461" alt="Screenshot 2026-03-03 at 12 19 22" src="https://github.com/user-attachments/assets/23962b09-d53b-4641-bcbd-df6f149e1543" />
 
  Architecture
 ┌─────────────────────┐
