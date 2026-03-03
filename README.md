@@ -97,20 +97,22 @@ Step 3 — Set Up Python Environment
 bashpython -m venv venv
 source venv/bin/activate        # Mac/Linux
 # venv\Scripts\activate         # Windows
-
 pip install -r requirements.txt
+
 Step 4 — Create the PostgreSQL Table
 bash# Connect to the database
 psql "postgresql://admin:admin123@localhost:5432/fraud_db"
-sqlCREATE TABLE flagged_transactions (
-    transaction_id  VARCHAR(100) PRIMARY KEY,
-    user_id         VARCHAR(50),
-    amount          NUMERIC(18, 2),
-    merchant        VARCHAR(200),
-    location        VARCHAR(100),
-    timestamp       TIMESTAMP,
-    fraud_flag      VARCHAR(50)
-);
+sql
+         CREATE TABLE flagged_transactions (
+             transaction_id  VARCHAR(100) PRIMARY KEY,
+             user_id         VARCHAR(50),
+             amount          NUMERIC(18, 2),
+             merchant        VARCHAR(200),
+             location        VARCHAR(100),
+             timestamp       TIMESTAMP,
+             fraud_flag      VARCHAR(50)
+         );
+
 Step 5 — Run the Pipeline
 Open two separate terminals:
 Terminal 1 — Start the Spark consumer first:
